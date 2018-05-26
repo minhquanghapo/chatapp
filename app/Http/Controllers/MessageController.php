@@ -23,7 +23,7 @@ class MessageController extends Controller
     		'message' => request()->message
     	]);
 
-        broadcast(new MessageSentEvent($user, $message));
+        broadcast(new MessageSentEvent($user, $message))->toOthers();
 
     }
 }
